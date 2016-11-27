@@ -3,7 +3,7 @@
 
 //$con = mysql_connect("localhost","mohghr_eleaves","eleaves_system");
 
-$con = mysql_connect("localhost","root","");
+$con = mysql_connect("localhost","root","PXS96W.Z85UxXlP!}8secKf]%");
 
 if (!$con)
   {
