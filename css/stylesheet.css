@@ -1,0 +1,1104 @@
+BODY
+{
+	margin:0 auto;
+	padding:0 auto;
+	width:900px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:11px;
+}
+
+
+.header
+{
+	height:195px;
+	width:900px;
+	margin-top:20px;
+	background:url(../images/header.jpg) no-repeat;
+}
+
+.originalTextareaInfo 
+	{
+		font-size: 11px;
+		color: #000000;
+		font-family:Arial, Helvetica, sans-serif;
+		text-align: right;
+	}
+			
+.warningTextareaInfo 
+	{
+		font-size: 11px;
+		color: #FF0000;
+		font-family:Arial, Helvetica, sans-serif;
+		text-align: right
+	}
+	
+.leftcol
+{
+	width:155px;
+	margin-top:15px;
+	margin-bottom:15px;
+	float:left;
+	padding-right:15px;	
+}
+
+.centercol
+{
+	width:714px;
+	margin-top:15px;
+	margin-bottom:15px;
+	min-height:320px;
+	float:left;
+	padding-left:15px;
+	border-left:solid 1px #CCC;
+	
+}
+
+.rightcol
+{
+	width:120px;
+	min-height:400px;
+	margin-top:15px;
+	margin-bottom:15px;
+	float:left;
+	padding-right:15px;
+	padding-left:15px;
+}
+
+.menu-title
+{
+	height:25px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:11px;
+	font-weight:bold;
+	color:#FFF;
+	-moz-border-radius: 7px;
+	border-radius: 7px;
+	background:#8B0000;
+	text-align:center;
+	clear: both;
+}
+
+.position-nav-item
+
+{
+	position:relative;
+	top:20%;
+	
+	
+}
+.menu-welcome-back
+{
+	
+	height:25px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:11px;
+	font-weight:bold;
+	color:#FFF;
+	-moz-border-radius: 7px;
+	border-radius: 7px;
+	background:#8B0000;
+	padding-left:15px;
+	padding-right:15px;
+	
+}
+
+#left-welcome
+{
+	float:left;
+	width:500px;
+	overflow:hidden;
+}
+
+#right_date
+{
+	float:right;
+}
+
+.menu1
+{
+	margin-top:8px;
+	list-style:none;
+	display:block;
+	margin-left:10px;
+	line-height:1.7em;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:11px;
+	color:#000;
+	margin-bottom:15px;
+	clear:both;
+}
+
+.menu1 a
+{
+	color:#000;
+	text-decoration:none;
+	display:block;
+}
+
+.overview-leaves
+{
+	margin-left:35px;
+	width:170px;
+	float:left;
+	overflow:hidden;
+}
+
+.footer
+{
+	width:885px;
+	height:15px;
+	padding:5px;
+	clear:both;
+	text-align:center;
+	color:#FFF;
+	font-weight:bold;
+	-moz-border-radius: 7px;
+	border-radius: 7px;
+	font-size:10px;
+	background:#8B0000;
+	margin-bottom:15px;
+}
+
+.table_list
+{
+	float:left;
+	width:90px;
+	color:#000;
+	font-weight:bold;
+	margin-bottom:5px;
+	overflow:hidden;
+}
+
+.table_results
+{
+	float:left;
+	height:16px;
+	width:90px;
+	color:#000;
+	font-weight:normal;
+	margin-top:10px;
+	overflow:hidden;
+}
+
+.paginate
+{
+	margin-bottom:15px;
+	margin-top:10px;
+}
+
+.previous-next-paginate a
+{
+	float:left;
+	color:#FFF;
+	font-weight:bold;
+	padding:4px 7px 4px 7px;
+	background:#8B0000;
+	text-decoration:none;
+	text-align:center;
+	font-size:10px;
+	margin-right:3px;
+}
+
+.number-paginate a
+{
+	float:left;
+	color:#FFF;
+	font-weight:bold;
+	padding:4px 7px 4px 7px;
+	background:#8B0000;
+	text-decoration:none;
+	text-align:center;
+	margin-right:3px;
+	font-size:10px;
+	
+
+}
+
+.dots-paginate
+{
+	float:left;
+	font-weight:bold;
+	color:#8B0000;
+	margin-left:3px;
+	margin-right:3px;
+	letter-spacing:2px;
+	font-size:11px;
+
+}
+
+.pageof-paginate
+{
+	color:#8B0000;
+	font-weight:bold;
+	margin-left:3px;
+	float:left;
+}
+
+.titles
+{
+	font-weight:bold; 
+	color:#8B0000;
+}
+
+.inner-center
+{
+	color:#000; 
+	font-weight:normal; 
+	margin-bottom:15px; 
+	margin-top:10px; 
+	padding-left:10px;
+}
+
+.login_box
+{
+	width:300px;
+	min-height:150px;
+	margin:0px auto;
+	clear:both;
+	padding:30px 30px 20px 30px;
+	-moz-box-shadow: 0 0 3px 3px #999;
+	-webkit-box-shadow: 0 0 3px 3px#999;
+	box-shadow: 0 0 3px 3px #999;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	font-weight:bold;
+	background-color:#F7F7F7;
+	
+}
+
+.spacer
+{
+	height:40px;
+}
+
+.form_holder
+{
+	font-size:11px; 
+	width:100%;  
+	margin:0 auto;
+}
+
+.form_label
+{
+	margin-bottom:10px;
+}
+
+.form_login_field
+{
+	width:100%;
+}
+
+.form_login_button
+{
+	width:70px;
+	margin:0 auto; 
+}
+
+.form_button_style
+{
+	text-align:center; 
+	font-size:11px; 
+	font-weight:bold; 
+	background:#8B0000;
+	margin-top:10px;
+	border:0px; 
+	color:#FFF; 
+	padding:5px 13px 5px 13px; 
+	-moz-border-radius: 6px; 
+	border-radius: 6px;
+	font-family:Arial, Helvetica, sans-serif;
+	cursor:pointer;
+}
+
+.not_reg
+{
+	text-align:right;
+	font-size:11px;
+	font-family:Arial, Helvetica, sans-serif;
+	margin-top:20px;
+	font-weight:normal;
+}
+
+.not_reg a
+{
+	text-decoration:none;
+	border-bottom:2px dotted #8B0000;
+	color:#8B0000;
+	
+}
+
+.icon
+{
+	height:16px;
+	width:16px;
+	margin-left:20px;
+	margin-right:10px;
+	margin-top:8px;
+	float:left;
+}
+
+.menu_links
+{
+	float:left;
+	font-size:11px;
+	font-weight:bold;
+	font-family:Arial, Helvetica, sans-serif;
+	color:#000;
+	height:16px;
+	margin-top:10px;
+}
+
+.menu_links a
+{
+	color:#000;
+	text-decoration:none;
+}
+
+.clearall
+{
+	clear:both;
+}
+
+.vertical_divider
+{
+	height:15px;
+	width:90%;
+	border-bottom:solid 1px #CCC;
+	margin:0px auto;
+	
+}
+
+.small_spacer
+{
+	height:8px;
+}
+
+.page_title
+{
+	margin-top:10px;
+	margin-left:15px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	font-weight:bold;
+	color:#8B0000;
+}
+
+.leave_credit_type
+{
+	float:left;
+	margin-top:8px;
+	margin-bottom:5px;
+}
+
+.floatmeright
+{
+	float:right;
+	margin-top:8px;
+	margin-bottom:5px;
+	color:#8B0000;
+	font-weight:bold;
+
+}
+
+.icon_lists
+{
+	height:16px;
+	width:16px;
+	margin-right:10px;
+	margin-top:8px;
+	float:left;
+}
+
+.leaves_credits_box
+{
+	clear:both;
+	border-right: 1px solid #CCC;
+	padding-right:30px;
+}
+
+.overview-leaves-statistics
+{
+	margin-left:35px;
+	width:140px;
+	float:left;
+	overflow:hidden;
+}
+
+.leaves_credits_box2
+{
+	clear:both;
+	padding-right:20px;
+}
+
+.content_wrapping_small
+{
+	margin-top:10px;
+	margin-left:15px;
+	width:700px;
+	min-height:200px;
+	overflow:hidden;
+}
+
+.text_area_feedback
+{
+	width:600px;
+	resize: none;
+	overflow:hidden;
+}
+
+#feed_back {
+    resize: none;
+}
+
+.form_label_float
+{
+	font-weight:bold;
+	color:#000;
+	font-size:11px;
+	margin-bottom:15px;
+	float:left;
+	padding-top:4px;
+	width:80px;
+	overflow:hidden;
+}
+
+.form_field_float
+{
+	float:left;
+	margin-left:10px;
+}
+
+.button_center
+{
+	margin:0px auto;
+	width:150px;
+	overflow:hidden;
+}
+
+.floataftericon_red
+{
+	float:left;
+	margin-top:8px;
+	color:#C00;
+	font-size:11px;
+	font-weight:bold;
+}
+
+.floataftericon_green
+{
+	float:left;
+	margin-top:8px;
+	color:#090;
+	font-size:11px;
+	font-weight:bold;
+
+	
+}
+
+.form_label_float_profile
+{
+	font-weight:bold;
+	color:#000;
+	font-size:11px;
+	margin-bottom:15px;
+	float:left;
+	padding-top:4px;
+	width:130px;
+	overflow:hidden;
+}
+
+.no_style a
+{
+	text-decoration:none;
+	color:#000;
+	border:0px;
+}
+
+.bold_text
+{
+	font-weight:bold;
+	margin-top:15px;
+	margin-bottom:15px;
+}
+
+.form_label_float_leave_apply
+{
+	font-weight:normal;
+	color:#000;
+	font-size:11px;
+	float:left;
+	width:150px;
+	padding-bottom:10px;
+	overflow:hidden;
+}
+
+.cal_leave_apply
+{
+	float:left;
+	width:230px;
+	margin-top:10px;
+	padding-bottom:10px;
+	overflow:hidden;
+}
+
+.fromto_leave_apply
+{
+	float:left;
+	margin-top:10px;
+	margin-right:10px;
+	padding-bottom:10px;
+}
+
+.red_text
+{
+	color:#C00;
+	font-weight:normal;
+}
+
+.links_float_left a
+{
+	float:left;
+	text-decoration:none;
+	border-bottom:2px dotted #8B0000;
+	color:#8B0000;
+	margin-top:8px;
+	height:16px;	
+}
+
+.only_bold
+{
+	font-weight:bold;
+}
+
+.underlined_text
+{
+	border-bottom:2px dotted #8B0000;
+}
+
+.check_leaves_info
+{
+	float:left;
+	width:85px;
+	font-weight:bold;
+	height:16px;
+	margin-top:8px;
+	overflow:hidden;
+}
+
+.floataftericon_blue
+{
+	float:left;
+	margin-top:8px;
+	color:#8B0000;
+	font-size:11px;
+	font-weight:bold;
+}
+
+.float_leave_info
+{
+	margin-right:10px;
+	width:550px;
+	margin-top:8px;
+	float:left;
+	font-weight:normal;
+	overflow:hidden;
+}
+
+.bold_black_table_list
+{
+	float:left;
+	height:16px;
+	width:90px;
+	color:#000;
+	margin-top:10px;
+	font-weight:normal;
+	overflow:hidden;
+}
+
+.bg_cal_form_field
+{
+	height:16px;
+	margin-top:5px;
+	background:url(../images/cal2.png) right no-repeat;
+	cursor:auto;
+	margin-bottom:10px;
+	margin-right:8px;
+	width:150px;
+}
+
+.des_form_field
+{
+	height:16px;
+	margin-top:5px;
+	cursor:auto;
+	margin-bottom:10px;
+	width:150px;
+}
+
+.red_bold
+{
+	color:#C00;
+	font-weight:bold;
+}
+
+.date_holiday_header
+{
+	width:150px;
+	font-weight:bold;
+	float:left;
+	margin-right:13px;
+	margin-bottom:5px;
+	overflow:hidden;
+}
+
+#holidays
+{
+	width:320px;
+}
+
+div.error
+{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:11px;
+	color:#C00;
+	font-weight:normal;
+	margin-left:5px;
+	margin-top:3px;
+	margin-bottom:3px;
+}
+
+.register_box
+{
+	width:300px;
+	margin:0px auto;
+	clear:both;
+	padding:30px 30px 20px 30px;
+	-moz-box-shadow: 0 0 3px 3px #999;
+	-webkit-box-shadow: 0 0 3px 3px#999;
+	box-shadow: 0 0 3px 3px #999;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	font-weight:bold;
+	background-color:#F7F7F7;	
+	
+}
+
+.form_button_style2
+{
+	text-align:center; 
+	font-size:11px; 
+	font-weight:bold; 
+	background:#8B0000;
+	margin-top:10px;
+	border:0px; 
+	color:#FFF; 
+	padding:5px 13px 5px 13px; 
+	-moz-border-radius: 6px; 
+	border-radius: 6px;
+	font-family:Arial, Helvetica, sans-serif;
+	cursor:pointer;
+	margin-left:10px;
+}
+
+.table_list_holidays
+{
+	float:left;
+	width:130px;
+	color:#000;
+	font-weight:bold;
+	margin-bottom:5px;
+	background:#EFEFEF;
+	padding:5px;
+	text-align:center;
+	margin-right:10px;
+	overflow:hidden;
+}
+
+.table_list_holidays_content
+{
+	float:left;
+	width:130px;
+	color:#000;
+	height:16px;
+	font-weight:normal;
+	margin-top:7px;
+	margin-right:10px;
+	padding:5px;
+	text-align:center;
+	background:#F4F4F4;
+	overflow:hidden;
+}
+
+.table_list_holidays_content_des
+{
+	float:left;
+	width:270px;
+	color:#000;
+	height:16px;
+	font-weight:normal;
+	margin-top:7px;
+	padding-left:10px;
+	background:#F4F4F4;
+	padding-top:5px;
+	padding-bottom:5px;
+	padding-right:5px;
+	margin-right:10px;
+	overflow:hidden;
+}
+
+.table_list_holidays_des
+{
+	float:left;
+	width:275px;
+	color:#000;
+	font-weight:bold;
+	margin-bottom:5px;
+	background:#EFEFEF;
+	padding:5px;
+	text-align:center;
+	margin-right:10px;
+	overflow:hidden;
+}
+
+.admin_panel_options_box
+{
+	width:180px;
+	height:100px;
+	float:left;
+	margin-right:20px;
+	text-align:center;
+	margin-top:15px;
+	overflow:hidden;
+}
+
+.admin_panel_icons
+{
+	margin-bottom:13px;
+	border:0px;
+	height:64px;
+	width:64px;
+	margin-left:58px;
+}
+
+.admin_panel_options_box a
+{
+	text-decoration:none;
+	border-bottom:2px dotted #8B0000;
+	color:#000;
+	font-weight:bold;
+	font-family:Arial, Helvetica, sans-serif;
+}
+
+.admin_wrapper
+{
+	padding-left:30px;
+	margin-bottom:10px;
+}
+
+.table_results_dept
+{
+	float:left;
+	height:16px;
+	width:120px;
+	color:#000;
+	font-weight:normal;
+	margin-top:10px;
+	overflow:hidden;
+	margin-left:10px;
+}
+
+.table_list_dept
+{
+	float:left;
+	width:120px;
+	color:#000;
+	font-weight:bold;
+	margin-bottom:5px;
+	overflow:hidden;
+	margin-left:10px;
+}
+
+
+.table_results_act
+{
+	float:left;
+	height:16px;
+	width:180px;
+	color:#000;
+	font-weight:normal;
+	margin-top:10px;
+	overflow:hidden;
+}
+
+.table_list_act
+{
+	float:left;
+	width:180px;
+	color:#000;
+	font-weight:bold;
+	margin-bottom:5px;
+	overflow:hidden;
+}
+
+
+.table_results_email
+{
+	float:left;
+	height:16px;
+	width:120px;
+	color:#000;
+	font-weight:normal;
+	margin-top:10px;
+	overflow:hidden
+}
+
+.table_list_email
+{
+	float:left;
+	width:120px;
+	color:#000;
+	font-weight:bold;
+	margin-bottom:5px;
+	overflow:hidden;
+}
+
+.small_vertical_space
+{
+	width:10px;
+	height:16px;
+	float:left;
+}
+
+.table_list_names
+{
+	float:left;
+	width:100px;
+	color:#000;
+	font-weight:bold;
+	margin-bottom:5px;
+	overflow:hidden;
+}
+
+.table_results_names
+{
+	float:left;
+	height:16px;
+	width:100px;
+	color:#000;
+	font-weight:normal;
+	margin-top:10px;
+	overflow:hidden
+}
+
+.table_list_check_leaves
+{
+	float:left;
+	margin-right:20px;
+	width:70px;
+	color:#000;
+	font-weight:bold;
+	margin-bottom:5px;
+	overflow:hidden;
+}
+
+.table_results_check_leaves
+{
+	float:left;
+	margin-right:20px;
+	height:16px;
+	width:70px;
+	color:#000;
+	font-weight:normal;
+	margin-top:10px;
+	overflow:hidden
+}
+
+.table_list_check_leaves_credit
+{
+	float:left;
+	margin-right:20px;
+	width:50px;
+	color:#000;
+	font-weight:bold;
+	margin-bottom:5px;
+	overflow:hidden;
+}
+
+
+.table_results_check_leaves_credit
+{
+	float:left;
+	margin-right:20px;
+	height:16px;
+	width:50px;
+	color:#000;
+	font-weight:normal;
+	margin-top:10px;
+	overflow:hidden
+}
+
+.table_list_check_leaves_id
+{
+	float:left;
+	margin-right:20px;
+	width:100px;
+	color:#000;
+	font-weight:bold;
+	margin-bottom:5px;
+	overflow:hidden;
+}
+
+
+.table_results_check_leaves_id
+
+{
+	float:left;
+	margin-right:20px;
+	height:16px;
+	width:100px;
+	color:#000;
+	font-weight:normal;
+	margin-top:10px;
+	overflow:hidden
+}
+
+
+.table_list_check_leaves_act
+{
+	float:left;
+	width:200px;
+	color:#000;
+	font-weight:bold;
+	margin-bottom:5px;
+	overflow:hidden;
+}
+
+
+.table_results_check_leaves_act
+
+{
+	float:left;
+	height:16px;
+	width:200px;
+	color:#000;
+	font-weight:normal;
+	margin-top:10px;
+	overflow:hidden
+}
+
+.table_list_user_id
+{
+	float:left;
+	width:60px;
+	color:#000;
+	font-weight:bold;
+	margin-bottom:5px;
+	overflow:hidden;
+}
+
+.table_results_user_id
+{
+	float:left;
+	height:16px;
+	width:60px;
+	color:#000;
+	font-weight:normal;
+	margin-top:10px;
+	overflow:hidden;
+}
+
+
+.table_list_user_email
+{
+	float:left;
+	width:150px;
+	color:#000;
+	font-weight:bold;
+	margin-bottom:5px;
+	overflow:hidden;
+}
+
+.table_results_user_email
+{
+	float:left;
+	height:16px;
+	width:150px;
+	color:#000;
+	font-weight:normal;
+	margin-top:10px;
+	overflow:hidden;
+}
+
+.view_leaves_button
+{
+	margin-left:35px;
+	margin-bottom:15px;
+}
+
+.left_space_holidays
+{
+	padding-left:20px;
+}
+
+.icon_lists_holiday
+{
+	height:16px;
+	width:16px;
+	margin-right:10px;
+	float:left;
+}
+
+.links_float_left_holiday a
+{
+	float:left;
+	text-decoration:none;
+	border-bottom:2px dotted #8B0000;
+	color:#8B0000;
+	height:16px;	
+}
+
+.table_list_user_email2
+{
+	float:left;
+	width:150px;
+	color:#000;
+	font-weight:bold;
+	margin-right:20px;
+	margin-bottom:5px;
+	overflow:hidden;
+}
+
+.table_results_user_email2
+{
+	float:left;
+	height:16px;
+	width:150px;
+	color:#000;
+	margin-right:20px;
+	font-weight:normal;
+	margin-top:10px;
+	overflow:hidden;
+}
+
+.table_list_user_dept2
+{
+	float:left;
+	width:110px;
+	color:#000;
+	font-weight:bold;
+	margin-right:20px;
+	margin-bottom:5px;
+	overflow:hidden;
+}
+
+.table_results_user_dept2
+{
+	float:left;
+	height:16px;
+	width:110px;
+	color:#000;
+	margin-right:20px;
+	font-weight:normal;
+	margin-top:10px;
+	overflow:hidden;
+}
