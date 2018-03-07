@@ -32,8 +32,3 @@ Login for admin is: admin/admin
 Note: To test the features as they should be in a real company situation, Register as a new user, then login using the admin account, activate the user and set his leaves credits. You can then login as the user and test the user functionalities, make new leave applications and then you can use the admin account to approve or reject applications.
 
 ==================
-
-*Contact Me*
-
-mohamed.ghr@gmail.com
-@mohamed_ghr
