@@ -30,8 +30,8 @@ include 'base.php';
 include 'functions.php';
 include 'secureme.php';
 $username=$_SESSION['username'];
-  $result2=mysql_query("SELECT * FROM `users` WHERE `username` = '$username'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
-  $r = mysql_fetch_array($result2);
+  $result2=mysqli_query("SELECT * FROM `users` WHERE `username` = '$username'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
+  $r = mysqli_fetch_array($result2);
   $applicants_id=$r['id']; 
   $username=$r['first_name'].' '.$r['last_name'];
   $sender_email=$r['e_mail'];
@@ -63,7 +63,7 @@ $username=$_SESSION['username'];
 <?php
 $file_temp_name=$_FILES['doc']['tmp_name'];
 		$file_temp_name = stripslashes($file_temp_name);
-		$file_temp_name = mysql_real_escape_string($file_temp_name);
+		$file_temp_name = mysqli_real_escape_string($file_temp_name);
 
 //part for uploaded file
 if(!empty($file_temp_name))
@@ -79,7 +79,7 @@ if(!empty($file_temp_name))
  
    $filename = $_FILES['doc']['name']; // Get the name of the file (including file extension).
    		$filename = stripslashes($filename);
-		$filename = mysql_real_escape_string($filename);
+		$filename = mysqli_real_escape_string($filename);
    $ext = substr($filename, strpos($filename,'.'), strlen($filename)-1); // Get the extension from the filename.
  
    // Check if the filetype is allowed, if not DIE and inform the user.
@@ -205,20 +205,20 @@ if	(
 		$number_days=countdays($_POST['date1'],$_POST['date2']);
 		$reason = $_POST['reason'];
 		//$reason = stripslashes($reason);
-		//$reason = mysql_real_escape_string($reason);
+		//$reason = mysqli_real_escape_string($reason);
 		
-		$get_user=mysql_query("SELECT * FROM `users` WHERE `id`='$applicants_id'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
-		$get_user_info=mysql_fetch_array($get_user);
+		$get_user=mysqli_query("SELECT * FROM `users` WHERE `id`='$applicants_id'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
+		$get_user_info=mysqli_fetch_array($get_user);
 		
 		$department=$get_user_info['department'];
 		$delivery_email=$get_user_info['e_mail'];
 		
-		$check_leaves=mysql_query("SELECT * FROM `leave` WHERE `applicants_id` = '$applicants_id' AND `start_date` = '$start_date'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");;
+		$check_leaves=mysqli_query("SELECT * FROM `leave` WHERE `applicants_id` = '$applicants_id' AND `start_date` = '$start_date'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");;
 		
 		
-		if (mysql_num_rows($check_leaves) > 0)
+		if (mysqli_num_rows($check_leaves) > 0)
 		{
-		$get_number=mysql_fetch_array($check_leaves);
+		$get_number=mysqli_fetch_array($check_leaves);
 		$ref=$get_number['reference_no'];
 		echo "<div class=icon_lists><img src=images/warning.png width=16 height=16 alt=warning_icon /></div>";
 		echo "<div class=floataftericon_red>";
@@ -267,21 +267,21 @@ if	(
 		
 	
 	
-			if (!mysql_query($sql,$con))
+			if (!mysqli_query($sql,$con))
 			{
-				die('Error: ' . mysql_error());
+				die('Error: ' . mysqli_error());
 			}
 		
 			else 
 			{
-		$latest_ref=mysql_query("SELECT * FROM `leave` 
+		$latest_ref=mysqli_query("SELECT * FROM `leave` 
 								WHERE `applicants_id` = '$applicants_id' 
 								ORDER BY `reference_no` DESC LIMIT 0, 1 ");
-		$get_ref=mysql_fetch_array($latest_ref);
+		$get_ref=mysqli_fetch_array($latest_ref);
 		$ref_num=$get_ref['reference_no'];
 		
-		$get_manager=mysql_query("SELECT * FROM `users` WHERE `department` = '$department' AND `access_level` = 'manager'");
-		$data=mysql_fetch_array($get_manager);
+		$get_manager=mysqli_query("SELECT * FROM `users` WHERE `department` = '$department' AND `access_level` = 'manager'");
+		$data=mysqli_fetch_array($get_manager);
 		$manager_email=$data['e_mail'];
 		
 		

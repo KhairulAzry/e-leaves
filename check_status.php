@@ -31,8 +31,8 @@ include 'base.php';
 include 'functions.php';
 include 'secureme.php';
 $username=$_SESSION['username'];
-  $result2=mysql_query("SELECT * FROM `users` WHERE `username` = '$username'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
-  $r = mysql_fetch_array($result2);
+  $result2=mysqli_query("SELECT * FROM `users` WHERE `username` = '$username'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
+  $r = mysqli_fetch_array($result2);
   $applicants_id=$r['id']; 
   $username=$r['first_name'].' '.$r['last_name'];
 ?>
@@ -81,14 +81,14 @@ $username = $_SESSION['username'];
 
 
 
-$result1=mysql_query("SELECT * FROM `users` WHERE `username` = '$username'");
-$row1 = mysql_fetch_array($result1);
+$result1=mysqli_query("SELECT * FROM `users` WHERE `username` = '$username'");
+$row1 = mysqli_fetch_array($result1);
 
 $applicants_id=$row1['id'];
 $department=$row1['department'];
-$result2=mysql_query("SELECT * FROM `leave` WHERE `applicants_id` = '$applicants_id'");
+$result2=mysqli_query("SELECT * FROM `leave` WHERE `applicants_id` = '$applicants_id'");
 
-$total_results=mysql_num_rows($result2);
+$total_results=mysqli_num_rows($result2);
 $results_per_page=10;
 $number_of_pages=ceil($total_results/$results_per_page);
 $start=0;
@@ -118,14 +118,14 @@ if ($total_results>0)
 }
 
 
-	$result3=mysql_query("SELECT * 
+	$result3=mysqli_query("SELECT * 
 	FROM `leave` 
 	WHERE `applicants_id` = '$applicants_id'
 	ORDER BY `reference_no` DESC
 	LIMIT $start,10
 	") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
 	
-	if(mysql_num_rows($result3)>0)
+	if(mysqli_num_rows($result3)>0)
 	{
 echo "
 	<div class=table_list>Reference no.</div>
@@ -137,7 +137,7 @@ echo "
 	<div class=table_list>Attachements</div>
 	";
 	echo "<div style=clear:both;></div>";	
-	while ($row = mysql_fetch_array($result3))
+	while ($row = mysqli_fetch_array($result3))
 	{
 	echo "<div style=clear:both;></div>";	
 	//$leave_ref = $row["reference_no"];
@@ -154,8 +154,8 @@ echo "
 	$status=$row['application_status'];
 	$pathtofile=$row['pathtofile'];
 	
-	$retrieve_user=mysql_query("SELECT * FROM `users` WHERE `id` = '$applicants_id'");
-	$user = mysql_fetch_array($retrieve_user);
+	$retrieve_user=mysqli_query("SELECT * FROM `users` WHERE `id` = '$applicants_id'");
+	$user = mysqli_fetch_array($retrieve_user);
 	
 	$department=$user['department'];
 	$leave_credit=$user["$new_type".'_'.'leave_credit'];

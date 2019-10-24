@@ -29,8 +29,8 @@ include 'base.php';
 include 'secureme.php';
 include 'functions.php';
 $username=$_SESSION['username'];
-  $result2=mysql_query("SELECT * FROM `users` WHERE `username` = '$username'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
-  $r = mysql_fetch_array($result2);
+  $result2=mysqli_query("SELECT * FROM `users` WHERE `username` = '$username'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
+  $r = mysqli_fetch_array($result2);
   $applicants_id=$r['id']; 
   $manager_dept=$r['department'];
   $access_level=$r['access_level'];
@@ -66,17 +66,17 @@ $username=$_SESSION['username'];
 
 $user_id = $_REQUEST['user_id'];
 
-$sql=mysql_query("SELECT * FROM `users` WHERE `users`.`id` =$user_id;");
-$get_dept=mysql_fetch_array($sql);
+$sql=mysqli_query("SELECT * FROM `users` WHERE `users`.`id` =$user_id;");
+$get_dept=mysqli_fetch_array($sql);
 $user_dept=$get_dept['department'];
 
-if (mysql_num_rows($sql) > 0)
+if (mysqli_num_rows($sql) > 0)
 {
 
 if ($manager_dept == $user_dept OR $access_level == 'admin')
 {
 
-$result=mysql_query("UPDATE `users` SET `registration_status` = '1' , `annual_leave_credit` = '20' , `medical_leave_credit` = '7' , `maternity_leave_credit` = '10' , `paternity_leave_credit` = '7'
+$result=mysqli_query("UPDATE `users` SET `registration_status` = '1' , `annual_leave_credit` = '20' , `medical_leave_credit` = '7' , `maternity_leave_credit` = '10' , `paternity_leave_credit` = '7'
   WHERE `users`.`id` =$user_id;") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience"); //or die ("ERROR");
 echo "<div class=icon_lists><img src=images/approved.png width=16 height=16 alt=approved_icon /></div>";		
 echo "<div class=floataftericon_green>User successfully approved</div>";

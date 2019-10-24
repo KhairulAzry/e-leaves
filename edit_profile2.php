@@ -72,7 +72,7 @@ if	(
 		$e_mail = $_POST['e_mail'];	
 		
 	
-	$sql = mysql_query("UPDATE `users` SET 
+	$sql = mysqli_query("UPDATE `users` SET 
 			`first_name` = '$first_name',
 			`last_name` = '$last_name',
 			`password` = '$password',

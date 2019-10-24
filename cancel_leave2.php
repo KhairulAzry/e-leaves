@@ -36,8 +36,8 @@ exit;
 include 'base.php';
 include 'functions.php';
 $username=$_SESSION['username'];
-  $result2=mysql_query("SELECT * FROM `users` WHERE `username` = '$username'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
-  $r = mysql_fetch_array($result2);
+  $result2=mysqli_query("SELECT * FROM `users` WHERE `username` = '$username'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
+  $r = mysqli_fetch_array($result2);
   $applicants_id=$r['id']; 
   $username=$r['first_name'].' '.$r['last_name'];
 ?>
@@ -69,13 +69,13 @@ $username=$_SESSION['username'];
 
 $reference=$_POST['reference_no'];
 
-$sql1=mysql_query("SELECT * FROM `leave` WHERE `reference_no` = '$reference' AND `applicants_id` = '$applicants_id'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience"); //or die ("ERROR");
-$result1=mysql_num_rows($sql1);
+$sql1=mysqli_query("SELECT * FROM `leave` WHERE `reference_no` = '$reference' AND `applicants_id` = '$applicants_id'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience"); //or die ("ERROR");
+$result1=mysqli_num_rows($sql1);
 
 if ($result1 > 0)
 {
 
-$data=mysql_fetch_array($sql1);
+$data=mysqli_fetch_array($sql1);
 $start_date=$data['start_date'];
 $status=$data['application_status'];
 $no_of_days=$data['no_of_days'];
@@ -115,7 +115,7 @@ echo "<p>Leave with Reference Number $reference is still pending and its startin
 if ($status == 'pending' and $start_date > $today)
 {
 
-$sql2=mysql_query("DELETE FROM `leave` WHERE `reference_no` = '$reference'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience"); //or die ("ERROR");
+$sql2=mysqli_query("DELETE FROM `leave` WHERE `reference_no` = '$reference'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience"); //or die ("ERROR");
 
 echo "<div class=icon_lists><img src=images/rejected.png width=16 height=16 alt=warning_icon /></div>";
 echo "<div class=floataftericon_red>";
@@ -127,19 +127,19 @@ echo "<p>Leave with Reference Number $reference was successfully deleted from th
 if ($status == 'approved' and $start_date > $today)
 {
 
-$sql2=mysql_query("DELETE FROM `leave` WHERE `reference_no` = '$reference'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience"); //or die ("ERROR");
+$sql2=mysqli_query("DELETE FROM `leave` WHERE `reference_no` = '$reference'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience"); //or die ("ERROR");
 
 $type=lcfirst($type);
 $type=$type.'_leave_credit';
 
-$sql3=mysql_query("SELECT * FROM `users` WHERE `id` = '$applicants_id'");
-$get_credit=mysql_fetch_array($sql3);
+$sql3=mysqli_query("SELECT * FROM `users` WHERE `id` = '$applicants_id'");
+$get_credit=mysqli_fetch_array($sql3);
 $current_credit=$get_credit[$type];
 
 $new_balance=$current_credit+$no_of_days;
 
 
-$sql3=mysql_query("UPDATE `users` SET `$type` = '$new_balance' WHERE `id` = '$applicants_id'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
+$sql3=mysqli_query("UPDATE `users` SET `$type` = '$new_balance' WHERE `id` = '$applicants_id'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
 
 
 echo "<div class=icon_lists><img src=images/rejected.png width=16 height=16 alt=warning_icon /></div>";

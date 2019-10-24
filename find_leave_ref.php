@@ -30,8 +30,8 @@ exit;
 include 'base.php';
 include 'functions.php';
 $username=$_SESSION['username'];
-  $result2=mysql_query("SELECT * FROM `users` WHERE `username` = '$username'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
-  $r = mysql_fetch_array($result2);
+  $result2=mysqli_query("SELECT * FROM `users` WHERE `username` = '$username'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
+  $r = mysqli_fetch_array($result2);
   $applicants_id=$r['id']; 
   $username=$r['first_name'].' '.$r['last_name'];
 ?>
@@ -65,16 +65,16 @@ $username=$_SESSION['username'];
 <?php
 $leave_ref = $_POST['reference_no'];
 //$leave_ref = stripslashes($leave_ref);
-//$leave_ref = mysql_real_escape_string($leave_ref);
+//$leave_ref = mysqli_real_escape_string($leave_ref);
 
-$result2=mysql_query("SELECT * FROM `leave` WHERE `reference_no` = '$leave_ref'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
+$result2=mysqli_query("SELECT * FROM `leave` WHERE `reference_no` = '$leave_ref'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
 
 $username=$_SESSION['username'];
 
 
-if (mysql_num_rows($result2)>0)
+if (mysqli_num_rows($result2)>0)
 {
-	$row = mysql_fetch_array($result2);
+	$row = mysqli_fetch_array($result2);
 	
 	//$leave_ref = $row["reference_no"];
 	$applicants_id=$row['applicants_id'];
@@ -87,8 +87,8 @@ if (mysql_num_rows($result2)>0)
 	$status=$row['application_status'];
 	$pathtofile=$row['pathtofile'];
 	
-	$get_user=mysql_query("SELECT * FROM `users` WHERE `username` = '$username'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
-	$info_user=mysql_fetch_array($get_user);
+	$get_user=mysqli_query("SELECT * FROM `users` WHERE `username` = '$username'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
+	$info_user=mysqli_fetch_array($get_user);
 	$user_id=$info_user['id'];
 	$new_type=strtolower($type);
 	$leave_credit=$info_user["$new_type".'_'.'leave_credit'];

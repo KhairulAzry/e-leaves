@@ -29,8 +29,8 @@ include 'base.php';
 include 'secureme.php';
 include 'functions.php';
 $username=$_SESSION['username'];
-  $result2=mysql_query("SELECT * FROM `users` WHERE `username` = '$username'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
-  $r = mysql_fetch_array($result2);
+  $result2=mysqli_query("SELECT * FROM `users` WHERE `username` = '$username'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
+  $r = mysqli_fetch_array($result2);
   $applicants_id=$r['id']; 
   $manager_dept=$r['department'];
   $access_level=$r['access_level'];
@@ -69,12 +69,12 @@ $applicants_id=$_REQUEST['applicants_id'];
 $leave_type=$_REQUEST['leave_type'];
 $string_leave_type=$leave_type.'_'.'leave_credit';
 
-$result2=mysql_query("SELECT * FROM `leave` WHERE `reference_no` = '$leave_ref'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
-$row = mysql_fetch_array($result2);
+$result2=mysqli_query("SELECT * FROM `leave` WHERE `reference_no` = '$leave_ref'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
+$row = mysqli_fetch_array($result2);
 
 
-	$get_user=mysql_query("SELECT * FROM `users` WHERE `id`='$applicants_id'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
-	$get_user_info=mysql_fetch_array($get_user);	
+	$get_user=mysqli_query("SELECT * FROM `users` WHERE `id`='$applicants_id'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
+	$get_user_info=mysqli_fetch_array($get_user);	
 	//$department=$get_user_info['department'];
 	$delivery_email=$get_user_info['e_mail'];
 	$user_dept=$get_user_info['department'];
@@ -88,12 +88,12 @@ $new_balance= $leave_credit - $no_off_days;
 if ($manager_dept == $user_dept OR $access_level == 'admin')
 {
 
-$deduct=mysql_query("UPDATE `users` SET `$string_leave_type` = '$new_balance' WHERE `users`.`id` =$applicants_id;") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
+$deduct=mysqli_query("UPDATE `users` SET `$string_leave_type` = '$new_balance' WHERE `users`.`id` =$applicants_id;") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
 
-$result=mysql_query("UPDATE `leave` SET `application_status` = 'approved' WHERE `leave`.`reference_no` =$leave_ref;") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience"); //or die ("ERROR");
+$result=mysqli_query("UPDATE `leave` SET `application_status` = 'approved' WHERE `leave`.`reference_no` =$leave_ref;") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience"); //or die ("ERROR");
 
-$result2=mysql_query("SELECT * FROM `leave` WHERE `reference_no` = '$leave_ref'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
-$row = mysql_fetch_array($result2);
+$result2=mysqli_query("SELECT * FROM `leave` WHERE `reference_no` = '$leave_ref'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
+$row = mysqli_fetch_array($result2);
 }
 else
 {
@@ -151,14 +151,14 @@ exit;
 
 //$_SESSION['leave_credit']
 /*
-$deduct=mysql_query("UPDATE `app1`.`users` SET `leave_credit` = '$new_balance' WHERE `users`.`id` =$applicants_id;");*/
+$deduct=mysqli_query("UPDATE `app1`.`users` SET `leave_credit` = '$new_balance' WHERE `users`.`id` =$applicants_id;");*/
 
 
 
 if ($result)
 {
 $approved_by=$_SESSION['username'];
-$by=mysql_query("UPDATE `leave` SET `approved_by` = '$approved_by' WHERE `leave`.`reference_no` =$leave_ref;") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience"); //or die ("ERROR");
+$by=mysqli_query("UPDATE `leave` SET `approved_by` = '$approved_by' WHERE `leave`.`reference_no` =$leave_ref;") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience"); //or die ("ERROR");
 
 
 echo "<div class=icon_lists><img src=images/approved.png width=16 height=16 alt=good_to_go_icon /></div>";		
@@ -171,10 +171,10 @@ echo "<p>Leave with $leave_ref was successfully approved.<br><br>The applicant w
 
 if ($result2)
 {
-	//$row = mysql_fetch_array($result2);
+	//$row = mysqli_fetch_array($result2);
 	
-	$result4=mysql_query("SELECT * FROM `users` WHERE `username` = '$approved_by'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
-	$row4 = mysql_fetch_array($result4);
+	$result4=mysqli_query("SELECT * FROM `users` WHERE `username` = '$approved_by'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
+	$row4 = mysqli_fetch_array($result4);
 		//retrieve emails and admin username using this row4
 	$admin_mail=$row4['e_mail'];
 	$by_whom=$row4['first_name'].' '.$row4['last_name'];

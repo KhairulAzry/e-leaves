@@ -15,7 +15,7 @@ Anyhow, I am releasing it to the public, take it, improve on it, do whatever you
 
 Final note before I go into installation instructions:
 
-There are quiet few warnings, I don't think they will affect the code functionality. Also, it was written using old deprecated functions like mysql_query and its likes. Last but not least, It uses the old PHP mail function. So, use at your own risk!
+There are quiet few warnings, I don't think they will affect the code functionality. Also, it was written using old deprecated functions like mysqli_query and its likes. Last but not least, It uses the old PHP mail function. So, use at your own risk!
 
 ==================
 

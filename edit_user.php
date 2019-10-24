@@ -36,8 +36,8 @@ include 'base.php';
 include 'secureme.php';
 include 'functions.php';
 $username=$_SESSION['username'];
-  $result2=mysql_query("SELECT * FROM `users` WHERE `username` = '$username'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
-  $r = mysql_fetch_array($result2);
+  $result2=mysqli_query("SELECT * FROM `users` WHERE `username` = '$username'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
+  $r = mysqli_fetch_array($result2);
   $applicants_id=$r['id']; 
   $manager_dept=$r['department'];
   $access_level=$r['access_level'];    
@@ -73,21 +73,21 @@ $username=$_SESSION['username'];
 			$key = $_POST['search1'];
 		}
 		//$key = stripslashes($key);
-		//$key = mysql_real_escape_string($key);
+		//$key = mysqli_real_escape_string($key);
 		
 		$key2=$_REQUEST['user_id'];
 		
 		$checkme=$_REQUEST['checkme'];
 
-		$result=mysql_query("SELECT * FROM `users` WHERE `id` = '$key' or `username` = '$key' or `id` = '$key2' ") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
-		//$result2=mysql_query("SELECT * FROM `users` WHERE `username` = '$key'");
+		$result=mysqli_query("SELECT * FROM `users` WHERE `id` = '$key' or `username` = '$key' or `id` = '$key2' ") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
+		//$result2=mysqli_query("SELECT * FROM `users` WHERE `username` = '$key'");
 		
 
-		if(mysql_num_rows($result)>0)
+		if(mysqli_num_rows($result)>0)
 		{
 			
 		
-			$r = mysql_fetch_array($result);
+			$r = mysqli_fetch_array($result);
 			$_SESSION['key'] = $r['id'];
 			$user_dept=$r['department'];
 			//$_SESSION['key2']=$key2;
@@ -108,7 +108,7 @@ echo "<p>An error has occurd. It looks like the user you have tried to edit does
 		
 		
 		
-		if (!mysql_num_rows($result))
+		if (!mysqli_num_rows($result))
 		{
 					echo "<div class=icon_lists><img src=images/warning.png width=16 height=16 alt=warning_icon /></div>";
 				echo "<div class=floataftericon_red>";

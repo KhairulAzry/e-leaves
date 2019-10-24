@@ -29,8 +29,8 @@ include 'base.php';
 include 'secureme.php';
 include 'functions.php';
 $username=$_SESSION['username'];
-  $result2=mysql_query("SELECT * FROM `users` WHERE `username` = '$username'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
-  $r = mysql_fetch_array($result2);
+  $result2=mysqli_query("SELECT * FROM `users` WHERE `username` = '$username'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
+  $r = mysqli_fetch_array($result2);
   $applicants_id=$r['id']; 
   $username=$r['first_name'].' '.$r['last_name'];
 ?>
@@ -64,12 +64,12 @@ $leave_ref = $_REQUEST['leave_ref'];
 $leave_credit=$_REQUEST['leave_credit'];
 $department = $_REQUEST['department'];
 
-$result2=mysql_query("SELECT * FROM `leave` WHERE `reference_no` = '$leave_ref'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
+$result2=mysqli_query("SELECT * FROM `leave` WHERE `reference_no` = '$leave_ref'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
 
 
 if ($result2)
 {
-	$row = mysql_fetch_array($result2);
+	$row = mysqli_fetch_array($result2);
 	
 	//$leave_ref = $row["reference_no"];
 	$applicants_id=$row['applicants_id'];

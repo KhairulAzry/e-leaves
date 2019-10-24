@@ -42,22 +42,22 @@ if	(
 	{ 
 		$first_name = $_POST['first_name'];
 		//$first_name = stripslashes($first_name);
-		//$first_name = mysql_real_escape_string($first_name);
+		//$first_name = mysqli_real_escape_string($first_name);
 		$last_name = $_POST['last_name'];
 		//$last_name = stripslashes($last_name);
-		//$last_name = mysql_real_escape_string($last_name);
+		//$last_name = mysqli_real_escape_string($last_name);
 		$username = $_POST['username'];
 		//$username = stripslashes($username);
-		//$username = mysql_real_escape_string($username);
+		//$username = mysqli_real_escape_string($username);
 		$password =$_POST['password'];
 		//$password = stripslashes($password);
-		//$password = mysql_real_escape_string($password);
+		//$password = mysqli_real_escape_string($password);
 		$e_mail = $_POST['e_mail'];
 		//$e_mail = stripslashes($e_mail);
-		//$e_mail = mysql_real_escape_string($e_mail);
+		//$e_mail = mysqli_real_escape_string($e_mail);
 		$handphone = $_POST['handphone'];
 		//$handphone = stripslashes($handphone);
-		//$handphone = mysql_real_escape_string($handphone);
+		//$handphone = mysqli_real_escape_string($handphone);
 		$registration_status = $_POST['registration_status'];
 		$access_level = $_POST['access_level'];
 		$department = $_POST['department'];
@@ -66,20 +66,20 @@ if	(
 		//$password = $password.'***&$$$#!!!!$$$##$##$$#VNBMCNDJ~~~+_';
 		$password = base64_encode($password);
 		
-		$test_user = mysql_query("SELECT * FROM users WHERE username = '". $username ."'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
-		$test_email = mysql_query("SELECT * FROM users WHERE e_mail = '". $e_mail ."'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");	
+		$test_user = mysqli_query("SELECT * FROM users WHERE username = '". $username ."'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
+		$test_email = mysqli_query("SELECT * FROM users WHERE e_mail = '". $e_mail ."'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");	
 		
-		if ((mysql_num_rows($test_user) || mysql_num_rows($test_email))  > 0)
+		if ((mysqli_num_rows($test_user) || mysqli_num_rows($test_email))  > 0)
 			{
 				echo "<div class=icon_lists><img src=images/warning.png width=16 height=16 alt=warning_icon /></div>";
 				echo "<div class=floataftericon_red>";
 				echo "We have detected the following errors:<br><br></div>";
 				echo "<div class=clearall></div>";
-				if (mysql_num_rows($test_user) > 0)
+				if (mysqli_num_rows($test_user) > 0)
 				{
 					echo "Username already in use. Please go back and choose a different username.<br><br>";
 				}
-				if (mysql_num_rows($test_email) > 0)
+				if (mysqli_num_rows($test_email) > 0)
 				{
 				echo "Email already in use. Please go back and choose a different email.<br>";
 				}	
@@ -132,9 +132,9 @@ if	(
 		echo "<div class=clearall></div>";
 
 
-		if (!mysql_query($sql,$con))
+		if (!mysqli_query($sql,$con))
 			{
-				die('Error: ' . mysql_error());
+				die('Error: ' . mysqli_error());
 			}
 
 		

@@ -29,8 +29,8 @@ include 'base.php';
 include 'secureme.php';
 include 'functions.php';
 $username=$_SESSION['username'];
-  $result2=mysql_query("SELECT * FROM `users` WHERE `username` = '$username'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
-  $r = mysql_fetch_array($result2);
+  $result2=mysqli_query("SELECT * FROM `users` WHERE `username` = '$username'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
+  $r = mysqli_fetch_array($result2);
   $applicants_id=$r['id']; 
   $manager_dept=$r['department'];
   $access_level=$r['access_level'];  
@@ -64,12 +64,12 @@ $username=$_SESSION['username'];
 
 $leave_ref = $_REQUEST['leave_ref'];
 
-$result2=mysql_query("SELECT * FROM `leave` WHERE `reference_no` = '$leave_ref'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
-$get_leave_info=mysql_fetch_array($result2);
+$result2=mysqli_query("SELECT * FROM `leave` WHERE `reference_no` = '$leave_ref'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
+$get_leave_info=mysqli_fetch_array($result2);
 $applicants_id=$get_leave_info['applicants_id'];
 
-	$get_user=mysql_query("SELECT * FROM `users` WHERE `id`='$applicants_id'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
-	$get_user_info=mysql_fetch_array($get_user);	
+	$get_user=mysqli_query("SELECT * FROM `users` WHERE `id`='$applicants_id'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
+	$get_user_info=mysqli_fetch_array($get_user);	
 	//$department=$get_user_info['department'];
 	$delivery_email=$get_user_info['e_mail'];
 	$user_dept=$get_user_info['department'];	
@@ -78,9 +78,9 @@ if ($manager_dept == $user_dept OR $access_level == 'admin')
 {
 	
 
-$result=mysql_query("UPDATE `leave` SET `application_status` = 'rejected' WHERE `leave`.`reference_no` =$leave_ref;") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience"); //or die ("ERROR");
-$result2=mysql_query("SELECT * FROM `leave` WHERE `reference_no` = '$leave_ref'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
-$row=mysql_fetch_array($result2);
+$result=mysqli_query("UPDATE `leave` SET `application_status` = 'rejected' WHERE `leave`.`reference_no` =$leave_ref;") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience"); //or die ("ERROR");
+$result2=mysqli_query("SELECT * FROM `leave` WHERE `reference_no` = '$leave_ref'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
+$row=mysqli_fetch_array($result2);
 }
 else
 {
@@ -94,7 +94,7 @@ if ($result)
 {
 
 $approved_by=$_SESSION['username'];
-$by=mysql_query("UPDATE `leave` SET `approved_by` = '$approved_by' WHERE `leave`.`reference_no` =$leave_ref;") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience"); //or die ("ERROR");
+$by=mysqli_query("UPDATE `leave` SET `approved_by` = '$approved_by' WHERE `leave`.`reference_no` =$leave_ref;") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience"); //or die ("ERROR");
 
 
 echo "<div class=icon_lists><img src=images/rejected.png width=16 height=16 alt=warning_icon /></div>";
@@ -109,10 +109,10 @@ echo "<p>Leave with $leave_ref was successfully rejected.<br><br>The applicant w
 
 if ($result2)
 {
-	//$row = mysql_fetch_array($result2);
+	//$row = mysqli_fetch_array($result2);
 	
-	$result4=mysql_query("SELECT * FROM `users` WHERE `username` = '$approved_by'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
-	$row4 = mysql_fetch_array($result4);
+	$result4=mysqli_query("SELECT * FROM `users` WHERE `username` = '$approved_by'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
+	$row4 = mysqli_fetch_array($result4);
 		//retrieve emails and admin username using this row4
 	$admin_mail=$row4['e_mail'];
 	$by_whom=$row4['first_name'].' '.$row4['last_name'];

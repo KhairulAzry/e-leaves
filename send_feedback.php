@@ -25,8 +25,8 @@ include 'base.php';
 include 'functions.php';
 include 'secureme.php';
 $username=$_SESSION['username'];
-  $result2=mysql_query("SELECT * FROM `users` WHERE `username` = '$username'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
-  $r = mysql_fetch_array($result2);
+  $result2=mysqli_query("SELECT * FROM `users` WHERE `username` = '$username'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
+  $r = mysqli_fetch_array($result2);
   $applicants_id=$r['id']; 
   $username=$r['first_name'].' '.$r['last_name'];
   $sender_email=$r['e_mail'];
@@ -73,9 +73,9 @@ $username=$_SESSION['username'];
 		'$applicants_id',
 		'$feed_back')";
         
-        if (!mysql_query($sql,$con))
+        if (!mysqli_query($sql,$con))
 		{
-			die('Error: ' . mysql_error());
+			die('Error: ' . mysqli_error());
 		}
 		
 		else 
@@ -86,8 +86,8 @@ $username=$_SESSION['username'];
 			echo "<div class=lists><br><br>Administration officers will view your feedback and get back to you as soon as possible.<br><br></div>";
 			echo "<div class=clearall></div>";
             
-            $get_admin=mysql_query("SELECT * FROM `users` WHERE `access_level` = 'admin'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
-			$get_admin_result=mysql_fetch_array($get_admin);
+            $get_admin=mysqli_query("SELECT * FROM `users` WHERE `access_level` = 'admin'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
+			$get_admin_result=mysqli_fetch_array($get_admin);
 			$admin_email=$get_admin_result['e_mail'];
 			
 			

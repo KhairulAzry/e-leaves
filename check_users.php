@@ -29,8 +29,8 @@ include 'base.php';
 include 'secureme.php';
 include 'functions.php';
 $username=$_SESSION['username'];
-  $result2=mysql_query("SELECT * FROM `users` WHERE `username` = '$username'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
-  $r = mysql_fetch_array($result2);
+  $result2=mysqli_query("SELECT * FROM `users` WHERE `username` = '$username'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
+  $r = mysqli_fetch_array($result2);
   $applicants_id=$r['id']; 
   $username=$r['first_name'].' '.$r['last_name'];
 ?>
@@ -72,15 +72,15 @@ $current_page=$_REQUEST['page'];
 }
 
 
-$result=mysql_query("SELECT * FROM `users` WHERE `registration_status` = 0") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
+$result=mysqli_query("SELECT * FROM `users` WHERE `registration_status` = 0") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
 
-$total_results=mysql_num_rows($result);
+$total_results=mysqli_num_rows($result);
 $results_per_page=5;
 $number_of_pages=ceil($total_results/$results_per_page);
 $start=0;
 
 
-if(mysql_num_rows($result)>0)
+if(mysqli_num_rows($result)>0)
 {
 
 	if (!$current_page)
@@ -108,16 +108,16 @@ echo "
 	<div class=table_list_act>Action</div>
 	<div style=clear:both;></div>";
 
-	$result3=mysql_query("SELECT * 
+	$result3=mysqli_query("SELECT * 
 	FROM `users` 
 	WHERE `registration_status` = '0'
 	ORDER BY `id` ASC
 	LIMIT $start,5
 	") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
 	
-	if(mysql_num_rows($result3)>0)
+	if(mysqli_num_rows($result3)>0)
 	{
-	while ($r = mysql_fetch_array($result3)) 
+	while ($r = mysqli_fetch_array($result3)) 
 	{ // Begin while
 	echo "<div style=clear:both;></div>";
 	$username = $r["username"];

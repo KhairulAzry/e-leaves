@@ -29,8 +29,8 @@ include 'base.php';
 include 'secureme.php';
 include 'functions.php';
 $username=$_SESSION['username'];
-  $result2=mysql_query("SELECT * FROM `users` WHERE `username` = '$username'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
-  $r = mysql_fetch_array($result2);
+  $result2=mysqli_query("SELECT * FROM `users` WHERE `username` = '$username'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
+  $r = mysqli_fetch_array($result2);
   $applicants_id=$r['id']; 
   $username=$r['first_name'].' '.$r['last_name'];
 ?>
@@ -73,13 +73,13 @@ $current_page=$_REQUEST['page'];
 
 
 
-$result=mysql_query("SELECT * FROM `users` WHERE `yearly_adjust` = '1'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
-$total_results=mysql_num_rows($result);
+$result=mysqli_query("SELECT * FROM `users` WHERE `yearly_adjust` = '1'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
+$total_results=mysqli_num_rows($result);
 $results_per_page=10;
 $number_of_pages=ceil($total_results/$results_per_page);
 $start=10;
 
-if(mysql_num_rows($result)>0)
+if(mysqli_num_rows($result)>0)
 {
 
 
@@ -110,14 +110,14 @@ echo "
 	";
 
 	
-	$result3=mysql_query("SELECT * 
+	$result3=mysqli_query("SELECT * 
 	FROM `users` 
 	WHERE `yearly_adjust` = '1'
 	ORDER BY `id` ASC
 	LIMIT $start,10
 	") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
 	
-	while ($r = mysql_fetch_array($result3)) 
+	while ($r = mysqli_fetch_array($result3)) 
 	{ // Begin while
 	echo "<div class=clearall></div>";
 	$user_id=$r["id"];

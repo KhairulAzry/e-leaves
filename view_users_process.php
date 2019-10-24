@@ -29,8 +29,8 @@ include 'base.php';
 include 'secureme.php';
 include 'functions.php';
 $username=$_SESSION['username'];
-  $result2=mysql_query("SELECT * FROM `users` WHERE `username` = '$username'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
-  $r = mysql_fetch_array($result2);
+  $result2=mysqli_query("SELECT * FROM `users` WHERE `username` = '$username'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
+  $r = mysqli_fetch_array($result2);
   $applicants_id=$r['id']; 
   $manager_dept=$r['department'];
   $access_level=$r['access_level'];     
@@ -85,7 +85,7 @@ if ($department == "All departments")
 if ($access_level == 'admin')
 {
 
-$result2=mysql_query("SELECT * FROM `users`") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
+$result2=mysqli_query("SELECT * FROM `users`") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
 }
 else
 {
@@ -99,18 +99,18 @@ echo "<p>An error has occurd. It looks like you have no permission to view recor
 else
 {
 
-$result2=mysql_query("SELECT * FROM `users` WHERE `department` = '$department'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
+$result2=mysqli_query("SELECT * FROM `users` WHERE `department` = '$department'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
 
 }
 
-$total_results=mysql_num_rows($result2);
+$total_results=mysqli_num_rows($result2);
 $results_per_page=10;
 $number_of_pages=ceil($total_results/$results_per_page);
 $start=0;
 
 
 
-if(mysql_num_rows($result2)>0)
+if(mysqli_num_rows($result2)>0)
 {
 
 
@@ -132,16 +132,16 @@ if(mysql_num_rows($result2)>0)
 
 if ($department == "All departments")
 {
-$result3=mysql_query("SELECT * FROM `users` ORDER BY `id` ASC LIMIT $start,10") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
+$result3=mysqli_query("SELECT * FROM `users` ORDER BY `id` ASC LIMIT $start,10") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
 }
 
 else
 {
-$result3=mysql_query("SELECT * FROM `users` WHERE `department` = '$department' ORDER BY `id` ASC LIMIT $start,10") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
+$result3=mysqli_query("SELECT * FROM `users` WHERE `department` = '$department' ORDER BY `id` ASC LIMIT $start,10") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
 }
 
 
-	if(mysql_num_rows($result3)>0)
+	if(mysqli_num_rows($result3)>0)
 	{
 	
 	echo "
@@ -154,7 +154,7 @@ $result3=mysql_query("SELECT * FROM `users` WHERE `department` = '$department' O
 	<div class=table_list_check_leaves>Registered</div>
 	";
 		
-	while ($r = mysql_fetch_array($result3))
+	while ($r = mysqli_fetch_array($result3))
 	{	
 
 

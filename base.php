@@ -1,17 +1,18 @@
 <?php
 // session_start();
 
-//$con = mysql_connect("localhost","mohghr_eleaves","eleaves_system");
+// $con = mysqli_connect("localhost","mohghr_eleaves","eleaves_system");
 
-$con = mysql_connect("localhost","root","PXS96W.Z85UxXlP!}8secKf]%");
+$con = mysqli_connect("localhost","root","", "app1");
+
 
 if (!$con)
   {
-  die('Could not connect: ' . mysql_error());
+  die('Could not connect: ' . mysqli_error());
   }
 
-//mysql_select_db("mohghr_eleeaves", $con);
+//mysqli_select_db("mohghr_eleeaves", $con);
 
-mysql_select_db("app1", $con);
+mysqli_select_db( $con, "app1");
 
 ?>

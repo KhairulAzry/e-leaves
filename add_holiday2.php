@@ -27,8 +27,8 @@ include 'base.php';
 include 'functions.php';
 include 'secureme.php';
 $username=$_SESSION['username'];
-  $result2=mysql_query("SELECT * FROM `users` WHERE `username` = '$username'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
-  $r = mysql_fetch_array($result2);
+  $result2=mysqli_query("SELECT * FROM `users` WHERE `username` = '$username'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
+  $r = mysqli_fetch_array($result2);
   $applicants_id=$r['id']; 
   $username=$r['first_name'].' '.$r['last_name'];
 ?>
@@ -78,7 +78,7 @@ for ($i=0; $i<=$count; $i++)
 		//echo "<br>";
 		
 		//$sql = ;
-		$sql=mysql_query("INSERT INTO `holidays` (`holiday_date`, `holiday_des`) VALUES ('$holiday_date[$i]', '$holiday_des[$i]')"); 
+		$sql=mysqli_query("INSERT INTO `holidays` (`holiday_date`, `holiday_des`) VALUES ('$holiday_date[$i]', '$holiday_des[$i]')"); 
 	}
 }
 			if ($sql)

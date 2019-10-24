@@ -30,8 +30,8 @@ exit;
 include 'base.php';
 include 'functions.php';
 $username=$_SESSION['username'];
-  $result2=mysql_query("SELECT * FROM `users` WHERE `username` = '$username'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
-  $r = mysql_fetch_array($result2);
+  $result2=mysqli_query("SELECT * FROM `users` WHERE `username` = '$username'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
+  $r = mysqli_fetch_array($result2);
   $applicants_id=$r['id']; 
   $username=$r['first_name'].' '.$r['last_name'];
 ?>
@@ -65,16 +65,16 @@ $username=$_SESSION['username'];
 <?php
 
 
-$result=mysql_query("SELECT * FROM `holidays` ORDER BY `holiday_date` ASC");
+$result=mysqli_query("SELECT * FROM `holidays` ORDER BY `holiday_date` ASC");
 
-if(mysql_num_rows($result)>0)
+if(mysqli_num_rows($result)>0)
 	{
 echo "
 	<div class=table_list_holidays>Date</div>
 	<div class=table_list_holidays_des>Public Holiday Title</div>
 	";
 	echo "<div style=clear:both;></div>";	
-	while ($row = mysql_fetch_array($result))
+	while ($row = mysqli_fetch_array($result))
 	{
 	echo "<div style=clear:both;></div>";	
 	$holiday_date=$row['holiday_date'];

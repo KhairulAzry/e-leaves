@@ -29,8 +29,8 @@ include 'base.php';
 include 'secureme.php';
 include 'functions.php';
 $username=$_SESSION['username'];
-  $result2=mysql_query("SELECT * FROM `users` WHERE `username` = '$username'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
-  $r = mysql_fetch_array($result2);
+  $result2=mysqli_query("SELECT * FROM `users` WHERE `username` = '$username'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
+  $r = mysqli_fetch_array($result2);
   $applicants_id=$r['id']; 
   $username=$r['first_name'].' '.$r['last_name'];
 ?>
@@ -75,9 +75,9 @@ $current_page=$_REQUEST['page'];
 
 
 
-$result2=mysql_query("SELECT * FROM `leave` WHERE `application_status` = 'pending'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
+$result2=mysqli_query("SELECT * FROM `leave` WHERE `application_status` = 'pending'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
 
-$total_results=mysql_num_rows($result2);
+$total_results=mysqli_num_rows($result2);
 $results_per_page=10;
 $number_of_pages=ceil($total_results/$results_per_page);
 $start=0;
@@ -85,7 +85,7 @@ $start=0;
 
 
 
-if(mysql_num_rows($result2)>0)
+if(mysqli_num_rows($result2)>0)
 {
 
 
@@ -105,14 +105,14 @@ if(mysql_num_rows($result2)>0)
 }	
 	
 
-	$result3=mysql_query("SELECT * 
+	$result3=mysqli_query("SELECT * 
 	FROM `leave` 
 	WHERE `application_status` = 'pending'
 	ORDER BY `reference_no` DESC
 	LIMIT $start,10
 	") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");	
 
-	if(mysql_num_rows($result3)>0)
+	if(mysqli_num_rows($result3)>0)
 	{
 	
 	echo "<p class=only_bold>The Following leaves are waiting for action:</p>";
@@ -126,7 +126,7 @@ if(mysql_num_rows($result2)>0)
 	<div class=table_list_check_leaves_act>Action</div>
 	";
 		
-	while ($r = mysql_fetch_array($result3))
+	while ($r = mysqli_fetch_array($result3))
 	{	
 
 
@@ -143,8 +143,8 @@ if(mysql_num_rows($result2)>0)
 	$number_days = $r["no_of_days"];
 	
 	
-	$retrieve_user=mysql_query("SELECT * FROM `users` WHERE `id` = '$applicants_id'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
-	$user = mysql_fetch_array($retrieve_user);
+	$retrieve_user=mysqli_query("SELECT * FROM `users` WHERE `id` = '$applicants_id'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
+	$user = mysqli_fetch_array($retrieve_user);
 	
 	$department=$user['department'];
 	$leave_credit=$user["$new_type".'_'.'leave_credit'];

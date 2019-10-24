@@ -36,15 +36,15 @@ $password_check = base64_encode($password_check);
 // To protect MySQL injection (more detail about MySQL injection)
 $username_check = stripslashes($username_check);
 $password_check = stripslashes($password_check);
-$username_check = mysql_real_escape_string($username_check);
-$password_check = mysql_real_escape_string($password_check);
+$username_check = mysqli_real_escape_string($username_check);
+$password_check = mysqli_real_escape_string($password_check);
 */
-$result=mysql_query("SELECT * FROM users WHERE username='$username_check' and password='$password_check'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
+$result=mysqli_query("SELECT * FROM users WHERE username='$username_check' and password='$password_check'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
 //$result = ($query);
-//$result=mysql_fetch_array($result);
-if(mysql_num_rows($result)>0)
+//$result=mysqli_fetch_array($result);
+if(mysqli_num_rows($result)>0)
 	{
-			$row = mysql_fetch_array($result);
+			$row = mysqli_fetch_array($result);
 			$_SESSION['registration_status'] = $row['registration_status'];
 			$_SESSION['username'] = $row['username'];
 			//$_SESSION['password'] = $row['password'];
@@ -76,9 +76,9 @@ if(mysql_num_rows($result)>0)
 	}		
 else 
 	{
-		$result2=mysql_query("SELECT * FROM users WHERE username='$username_check'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
+		$result2=mysqli_query("SELECT * FROM users WHERE username='$username_check'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
 		
-		if(!mysql_num_rows($result2))
+		if(!mysqli_num_rows($result2))
 		{
 				echo "<div class=icon_lists><img src=images/warning.png width=16 height=16 alt=warning_icon /></div>";
 				echo "<div class=floataftericon_red>";

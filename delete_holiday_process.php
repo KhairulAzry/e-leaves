@@ -29,8 +29,8 @@ include 'base.php';
 include 'secureme.php';
 include 'functions.php';
 $username=$_SESSION['username'];
-  $result2=mysql_query("SELECT * FROM `users` WHERE `username` = '$username'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
-  $r = mysql_fetch_array($result2);
+  $result2=mysqli_query("SELECT * FROM `users` WHERE `username` = '$username'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
+  $r = mysqli_fetch_array($result2);
   $applicants_id=$r['id']; 
   $username=$r['first_name'].' '.$r['last_name'];
 ?>
@@ -62,14 +62,14 @@ $username=$_SESSION['username'];
 
 $number = $_REQUEST['number'];
 
-$sql=mysql_query("SELECT * FROM `holidays` WHERE `number` = '$number'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
-$result=mysql_num_rows($sql);
+$sql=mysqli_query("SELECT * FROM `holidays` WHERE `number` = '$number'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
+$result=mysqli_num_rows($sql);
 
 
 if ($result != 0)
 {
 
-$delete=mysql_query("DELETE FROM `holidays` WHERE `number` = '$number'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");;
+$delete=mysqli_query("DELETE FROM `holidays` WHERE `number` = '$number'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");;
 
 
 echo "<div class=icon_lists><img src=images/rejected.png width=16 height=16 alt=rejected_icon /></div>";

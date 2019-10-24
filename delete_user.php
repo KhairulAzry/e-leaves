@@ -29,8 +29,8 @@ include 'base.php';
 include 'secureme.php';
 include 'functions.php';
 $username=$_SESSION['username'];
-  $result2=mysql_query("SELECT * FROM `users` WHERE `username` = '$username'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
-  $r = mysql_fetch_array($result2);
+  $result2=mysqli_query("SELECT * FROM `users` WHERE `username` = '$username'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
+  $r = mysqli_fetch_array($result2);
   $applicants_id=$r['id']; 
   $manager_dept=$r['department'];
   $access_level=$r['access_level'];
@@ -65,26 +65,26 @@ $username=$_SESSION['username'];
 
 $user_id = $_REQUEST['user_id'];
 
-$sql=mysql_query("SELECT * FROM `users` WHERE `id` ='$user_id'");
-$get_dept=mysql_fetch_array($sql);
+$sql=mysqli_query("SELECT * FROM `users` WHERE `id` ='$user_id'");
+$get_dept=mysqli_fetch_array($sql);
 $user_dept=$get_dept['department'];
 
 
 
 
-if (mysql_num_rows($sql) > 0)
+if (mysqli_num_rows($sql) > 0)
 {
 
 if ($manager_dept == $user_dept OR $access_level == 'admin')
 {
 
-$result=mysql_query("DELETE FROM `users` WHERE `id` = '$user_id'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience"); //or die ("ERROR");
+$result=mysqli_query("DELETE FROM `users` WHERE `id` = '$user_id'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience"); //or die ("ERROR");
 
-$leaves=mysql_query("SELECT * FROM `leave` WHERE `applicants_id` = '$user_id'");
-if (mysql_num_rows($leaves) > 0)
+$leaves=mysqli_query("SELECT * FROM `leave` WHERE `applicants_id` = '$user_id'");
+if (mysqli_num_rows($leaves) > 0)
 {
 
-$result2=mysql_query("DELETE FROM `leave` WHERE `applicants_id` IN ('$user_id')") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience"); //or die ("ERROR");
+$result2=mysqli_query("DELETE FROM `leave` WHERE `applicants_id` IN ('$user_id')") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience"); //or die ("ERROR");
 
 echo "<div class=clearall></div>";
 echo "<div class=icon_lists><img src=images/rejected.png width=16 height=16 alt=rejected_icon /></div>";		

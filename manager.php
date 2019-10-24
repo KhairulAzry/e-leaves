@@ -32,8 +32,8 @@ include 'base.php';
 include 'secureme.php';
 include 'functions.php';
 $username=$_SESSION['username'];
-  $result2=mysql_query("SELECT * FROM `users` WHERE `username` = '$username'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
-  $r = mysql_fetch_array($result2);
+  $result2=mysqli_query("SELECT * FROM `users` WHERE `username` = '$username'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
+  $r = mysqli_fetch_array($result2);
   $applicants_id=$r['id'];
   $manager_dept=$r['department'];
   $username=$r['first_name'].' '.$r['last_name'];
@@ -66,15 +66,15 @@ $username=$_SESSION['username'];
 
 <?php
 
-$result=mysql_query("SELECT * FROM `users` WHERE `registration_status` = '0' AND `department` = '$manager_dept'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
+$result=mysqli_query("SELECT * FROM `users` WHERE `registration_status` = '0' AND `department` = '$manager_dept'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
 
 
 
-if(mysql_num_rows($result)>0)
+if(mysqli_num_rows($result)>0)
 {
 
 
-	while ($r = mysql_fetch_array($result)) 
+	while ($r = mysqli_fetch_array($result)) 
 	{ // Begin while
 
 		$count1++;
@@ -103,14 +103,14 @@ echo "</div>";
 
 <?php
 
-$result2=mysql_query("SELECT * FROM `leave` WHERE `application_status` = 'pending' AND `applicant_department` = '$manager_dept'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
+$result2=mysqli_query("SELECT * FROM `leave` WHERE `application_status` = 'pending' AND `applicant_department` = '$manager_dept'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
 
-if(mysql_num_rows($result2)>0)
+if(mysqli_num_rows($result2)>0)
 {
 
 
 
-	while ($r = mysql_fetch_array($result2)) 
+	while ($r = mysqli_fetch_array($result2)) 
 	{ // Begin while
 		$count2++;
 	} // end while
@@ -144,15 +144,15 @@ echo "</div>";
 <?php
 
 
-$result3=mysql_query("SELECT * FROM `users` WHERE `yearly_adjust` = '1' AND `department` = '$manager_dept'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
+$result3=mysqli_query("SELECT * FROM `users` WHERE `yearly_adjust` = '1' AND `department` = '$manager_dept'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
 
 
 
-if(mysql_num_rows($result3)>0)
+if(mysqli_num_rows($result3)>0)
 {
 
 
-	while ($r3 = mysql_fetch_array($result3)) 
+	while ($r3 = mysqli_fetch_array($result3)) 
 	{ // Begin while
 
 		$count4++;

@@ -36,8 +36,8 @@ include 'base.php';
 include 'secureme.php';
 include 'functions.php';
 $username=$_SESSION['username'];
-  $result2=mysql_query("SELECT * FROM `users` WHERE `username` = '$username'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
-  $r = mysql_fetch_array($result2);
+  $result2=mysqli_query("SELECT * FROM `users` WHERE `username` = '$username'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
+  $r = mysqli_fetch_array($result2);
   $applicants_id=$r['id']; 
   $username=$r['first_name'].' '.$r['last_name'];
 ?>
@@ -98,21 +98,21 @@ if	(
 {	
 		$first_name = $_POST['first_name'];
 		//$first_name = stripslashes($first_name);
-		//$first_name = mysql_real_escape_string($first_name);
+		//$first_name = mysqli_real_escape_string($first_name);
 		$last_name = $_POST['last_name'];
 		//$last_name = stripslashes($last_name);
-		//$last_name = mysql_real_escape_string($last_name);
+		//$last_name = mysqli_real_escape_string($last_name);
 		$username = $_POST['username'];
 		//$username = stripslashes($username);
-		//$username = mysql_real_escape_string($username);
+		//$username = mysqli_real_escape_string($username);
 		$password = $_POST['password'];
 		//$password = stripslashes($password);
-		//$password = mysql_real_escape_string($password);		
+		//$password = mysqli_real_escape_string($password);		
 		//$password = $password.'***&$$$#!!!!$$$##$##$$#VNBMCNDJ~~~+_';
 		$password = base64_encode($password);
 		$handphone = $_POST['handphone'];
 		//$handphone = stripslashes($handphone);
-		//$handphone = mysql_real_escape_string($handphone);		
+		//$handphone = mysqli_real_escape_string($handphone);		
 		//$registration_status = $_POST['registration_status'];
 		$access_level = $_POST['access_level'];
 		$department = $_POST['department'];
@@ -120,33 +120,33 @@ if	(
 		
 			$annual_leave_credit = $_POST['annual_leave_credit'];
 			//$annual_leave_credit = stripslashes($annual_leave_credit);
-			//$annual_leave_credit = mysql_real_escape_string($annual_leave_credit);
+			//$annual_leave_credit = mysqli_real_escape_string($annual_leave_credit);
 			$medical_leave_credit = $_POST['medical_leave_credit'];
 			//$medical_leave_credit = stripslashes($medical_leave_credit);
-			//$medical_leave_credit = mysql_real_escape_string($medical_leave_credit);
+			//$medical_leave_credit = mysqli_real_escape_string($medical_leave_credit);
 			$maternity_leave_credit = $_POST['maternity_leave_credit'];
 			//$maternity_leave_credit = stripslashes($maternity_leave_credit);
-			//$maternity_leave_credit = mysql_real_escape_string($maternity_leave_credit);
+			//$maternity_leave_credit = mysqli_real_escape_string($maternity_leave_credit);
 			$paternity_leave_credit = $_POST['paternity_leave_credit'];
 			//$paternity_leave_credit = stripslashes($paternity_leave_credit);
-			//$paternity_leave_credit = mysql_real_escape_string($paternity_leave_credit);
+			//$paternity_leave_credit = mysqli_real_escape_string($paternity_leave_credit);
 			$emergency_leave_credit = $_POST['emergency_leave_credit'];
 			//$emergency_leave_credit = stripslashes($emergency_leave_credit);
-			//$emergency_leave_credit = mysql_real_escape_string($emergency_leave_credit);
+			//$emergency_leave_credit = mysqli_real_escape_string($emergency_leave_credit);
 			$unpaid_leave_credit = $_POST['unpaid_leave_credit'];
 			//$unpaid_leave_credit = stripslashes($unpaid_leave_credit);
-			//$unpaid_leave_credit = mysql_real_escape_string($unpaid_leave_credit);
+			//$unpaid_leave_credit = mysqli_real_escape_string($unpaid_leave_credit);
 			$compassionate_leave_credit = $_POST['compassionate_leave_credit'];
 			//$compassionate_leave_credit = stripslashes($compassionate_leave_credit);
-			//$compassionate_leave_credit = mysql_real_escape_string($compassionate_leave_credit);
+			//$compassionate_leave_credit = mysqli_real_escape_string($compassionate_leave_credit);
 		
 		
 		$e_mail = $_POST['e_mail'];	
 		//$e_mail = stripslashes($e_mail);
-		//$e_mail = mysql_real_escape_string($e_mail);
+		//$e_mail = mysqli_real_escape_string($e_mail);
 		
 	
-	$sql = mysql_query("UPDATE `users` SET 
+	$sql = mysqli_query("UPDATE `users` SET 
 			`first_name` = '$first_name',
 			`last_name` = '$last_name',
 			`username` = '$username',
@@ -173,7 +173,7 @@ if	(
 	if ($checkme == 'true')
 	{
 	
-	$update_user=mysql_query("UPDATE `users` SET `yearly_adjust` = '0' WHERE `users`.`id` ='$key'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
+	$update_user=mysqli_query("UPDATE `users` SET `yearly_adjust` = '0' WHERE `users`.`id` ='$key'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
 	
 	}
 }

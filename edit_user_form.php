@@ -17,14 +17,14 @@ $checkme=$_REQUEST['checkme'];
 
 $key = $_SESSION['key'];
 
-$result=mysql_query("SELECT * FROM `users` WHERE `id` = '$key' or `id` = '$key'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
-//$result2=mysql_query("SELECT * FROM `users` WHERE `username` = '$key'");
+$result=mysqli_query("SELECT * FROM `users` WHERE `id` = '$key' or `id` = '$key'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
+//$result2=mysqli_query("SELECT * FROM `users` WHERE `username` = '$key'");
 
-if((mysql_num_rows($result)>0) )
+if((mysqli_num_rows($result)>0) )
 
 	{
 
-			$r = mysql_fetch_array($result);
+			$r = mysqli_fetch_array($result);
 			$first_name = $r['first_name'];
 			$last_name = $r['last_name'];
 			$username = $r['username'];

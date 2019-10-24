@@ -37,8 +37,8 @@ include 'base.php';
 include 'secureme.php';
 include 'functions.php';
 $username=$_SESSION['username'];
-  $result2=mysql_query("SELECT * FROM `users` WHERE `username` = '$username'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
-  $r = mysql_fetch_array($result2);
+  $result2=mysqli_query("SELECT * FROM `users` WHERE `username` = '$username'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
+  $r = mysqli_fetch_array($result2);
   $applicants_id=$r['id']; 
   $username=$r['first_name'].' '.$r['last_name'];
 ?>
@@ -80,24 +80,24 @@ if ($val == max($counter)) return $key;
 $dept=$_POST['dept'];
 
 
-$sql=mysql_query("SELECT * FROM `users` ORDER BY `id` DESC LIMIT 0, 1");
-$limits=mysql_fetch_array($sql);
+$sql=mysqli_query("SELECT * FROM `users` ORDER BY `id` DESC LIMIT 0, 1");
+$limits=mysqli_fetch_array($sql);
 $count=$limits['id'];
 //correct here!!!
 
-$no_of_leaves_dept=mysql_query("SELECT * FROM `leave` WHERE `applicant_department` = '$dept'");
-$no_of_leaves_dept=mysql_num_rows($no_of_leaves_dept);
+$no_of_leaves_dept=mysqli_query("SELECT * FROM `leave` WHERE `applicant_department` = '$dept'");
+$no_of_leaves_dept=mysqli_num_rows($no_of_leaves_dept);
 
-$no_of_leaves_all=mysql_query("SELECT * FROM `leave`");
-$no_of_leaves_all=mysql_num_rows($no_of_leaves_all);
+$no_of_leaves_all=mysqli_query("SELECT * FROM `leave`");
+$no_of_leaves_all=mysqli_num_rows($no_of_leaves_all);
 
 if ($dept == 'All departments')
 {
 
 for ($i=1; $i<=$count; $i++)
 {
-$sql2=mysql_query("SELECT * FROM `leave` WHERE `applicants_id`='$i'");
-$counter[$i]=mysql_num_rows($sql2);
+$sql2=mysqli_query("SELECT * FROM `leave` WHERE `applicants_id`='$i'");
+$counter[$i]=mysqli_num_rows($sql2);
 }
 
 $highest_user=max_key($counter);
@@ -108,10 +108,10 @@ for ($i=1; $i<=$count; $i++)
 	if ($counter[$i]==$highest_value)
 	{
 	$user=$i;
-	$sql=mysql_query("SELECT * FROM `leave` WHERE `applicants_id`='$user'");
-	$get_info=mysql_fetch_array($sql);
+	$sql=mysqli_query("SELECT * FROM `leave` WHERE `applicants_id`='$user'");
+	$get_info=mysqli_fetch_array($sql);
 
-	if (mysql_num_rows($sql) > 0)
+	if (mysqli_num_rows($sql) > 0)
 	{
 	$id=$get_info['applicants_id'];
 	$name=$get_info['applicant_name'];
@@ -151,8 +151,8 @@ else
 
 for ($i=1; $i<=$count; $i++)
 {
-$sql2=mysql_query("SELECT * FROM `leave` WHERE `applicants_id`='$i' AND `applicant_department`='$dept'");
-$counter[$i]=mysql_num_rows($sql2);
+$sql2=mysqli_query("SELECT * FROM `leave` WHERE `applicants_id`='$i' AND `applicant_department`='$dept'");
+$counter[$i]=mysqli_num_rows($sql2);
 }
 
 $highest_user=max_key($counter);
@@ -164,11 +164,11 @@ for ($i=1; $i<=$count; $i++)
 	{
 	$user=$i;
 
-$sql=mysql_query("SELECT * FROM `leave` WHERE `applicants_id`='$user' and `applicant_department` = '$dept'");
+$sql=mysqli_query("SELECT * FROM `leave` WHERE `applicants_id`='$user' and `applicant_department` = '$dept'");
 
-$get_info=mysql_fetch_array($sql);
+$get_info=mysqli_fetch_array($sql);
 
-if (mysql_num_rows($sql) > 0)
+if (mysqli_num_rows($sql) > 0)
 {
 
 $id=$get_info['applicants_id'];
@@ -202,7 +202,7 @@ $number=max($counter);
 }
 }
 
-if (mysql_num_rows($sql) == 0)
+if (mysqli_num_rows($sql) == 0)
 {
 	echo "<div class=icon_lists><img src=images/warning.png width=16 height=16 alt=warning_icon /></div>";
 	echo "<div class=floataftericon_red>";

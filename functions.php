@@ -12,11 +12,11 @@
 		$end = new DateTime($end);
    
 
-$sql=mysql_query("SELECT * FROM `holidays`");
+$sql=mysqli_query("SELECT * FROM `holidays`");
 
 $i=0;
 
-while ($r=mysql_fetch_array($sql))
+while ($r=mysqli_fetch_array($sql))
 {
 	$holidays[$i]=$r['holiday_date'];
 	$i++;
@@ -104,9 +104,9 @@ while ($r=mysql_fetch_array($sql))
 	  
 		//check for specific field :)
 			$column=$field_name;
-			$columns = mysql_query("SHOW COLUMNS FROM `users`") or die("error");
+			$columns = mysqli_query("SHOW COLUMNS FROM `users`") or die("error");
 
-			while($c = mysql_fetch_assoc($columns))
+			while($c = mysqli_fetch_assoc($columns))
 			{
 				if($c['Field'] == $column)
 				{	
@@ -115,8 +115,8 @@ while ($r=mysql_fetch_array($sql))
 					$field_name2=ucfirst($field_name2);
 					echo "<div class=icon_lists><img src=images/leave_list.png width=16 height=16 alt=leave_list_icon /></div>";
 					echo "<div class=leave_credit_type>$field_name2:</div>";
-					$sql=mysql_query("SELECT * FROM `users` WHERE `id`='$id'") or die("error");
-					$result=mysql_fetch_array($sql);
+					$sql=mysqli_query("SELECT * FROM `users` WHERE `id`='$id'") or die("error");
+					$result=mysqli_fetch_array($sql);
 					$number_of_days=$result[$field_name];
 					echo "<div class=floatmeright>$number_of_days</div>";
 				
@@ -136,10 +136,10 @@ while ($r=mysql_fetch_array($sql))
 			$status2=ucfirst($status);
 			echo "<div class=icon_lists><img src=images/$status.png width=16 height=16 alt=leave_list_icon /></div>";
 			echo "<div class=leave_credit_type>$status2:</div> ";
-			$result3=mysql_query("SELECT * FROM `leave` WHERE `applicants_id`='$id' 
+			$result3=mysqli_query("SELECT * FROM `leave` WHERE `applicants_id`='$id' 
 			and `application_status`='$status'");
 			echo "<div class=floatmeright>"; 
-			echo mysql_num_rows($result3);
+			echo mysqli_num_rows($result3);
 			echo "</div>";
 			echo "<div style=clear:both;></div>";
 			

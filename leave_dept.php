@@ -25,8 +25,8 @@ include 'base.php';
 include 'secureme.php';
 include 'functions.php';
 $username=$_SESSION['username'];
-  $result2=mysql_query("SELECT * FROM `users` WHERE `username` = '$username'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
-  $r = mysql_fetch_array($result2);
+  $result2=mysqli_query("SELECT * FROM `users` WHERE `username` = '$username'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
+  $r = mysqli_fetch_array($result2);
   $applicants_id=$r['id']; 
   $manager_dept=$r['department'];
   $access_level=$r['access_level'];      
@@ -92,18 +92,18 @@ $current_page=$_REQUEST['page'];
 
 
 	
-	$check_leaves=mysql_query("SELECT * FROM `leave` WHERE `start_date` >= '$date1' and `start_date` <= '$date2' and `end_date` <= '$date2' and `applicant_department` = '$leave_dept'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
+	$check_leaves=mysqli_query("SELECT * FROM `leave` WHERE `start_date` >= '$date1' and `start_date` <= '$date2' and `end_date` <= '$date2' and `applicant_department` = '$leave_dept'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
 	
 	$count2 = 0;
 	
-	if(mysql_num_rows($check_leaves)>0)
+	if(mysqli_num_rows($check_leaves)>0)
 	{
 	
 	if ($manager_dept == $leave_dept OR $access_level == 'admin')
 		{
 	
 	
-	while ($check_leaves_count = mysql_fetch_array($check_leaves))
+	while ($check_leaves_count = mysqli_fetch_array($check_leaves))
 		{
 		
 		$count2++;
@@ -154,9 +154,9 @@ echo "<div class=clearall></div>";
 
 
 
-$get_leaves=mysql_query("SELECT * FROM `leave` WHERE `start_date` between '$date1' and '$date2' and `applicant_department` = '$leave_dept'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
+$get_leaves=mysqli_query("SELECT * FROM `leave` WHERE `start_date` between '$date1' and '$date2' and `applicant_department` = '$leave_dept'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
 
-$total_results=mysql_num_rows($get_leaves);
+$total_results=mysqli_num_rows($get_leaves);
 $results_per_page=10;
 $number_of_pages=ceil($total_results/$results_per_page);
 $start=0;
@@ -165,7 +165,7 @@ $start=0;
 
 
 
-if(mysql_num_rows($get_leaves)>0)
+if(mysqli_num_rows($get_leaves)>0)
 {
 		
 	//$limit=5;
@@ -189,7 +189,7 @@ if(mysql_num_rows($get_leaves)>0)
 	
 	
 	
-	$result2=mysql_query("SELECT * 
+	$result2=mysqli_query("SELECT * 
 	FROM `leave` 
 	WHERE `start_date` between '$date1' and '$date2'
 	AND `applicant_department` = '$leave_dept'
@@ -197,13 +197,13 @@ if(mysql_num_rows($get_leaves)>0)
 	LIMIT $start,10
 	") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
 	
-	if(mysql_num_rows($result2)>0)
+	if(mysqli_num_rows($result2)>0)
 	{
 	
 
 		
 		
-	while ($q = mysql_fetch_array($result2))
+	while ($q = mysqli_fetch_array($result2))
 		{
 	$applicant_name= $q["applicant_name"];
 	$leave_ref = $q["reference_no"];
@@ -218,8 +218,8 @@ if(mysql_num_rows($get_leaves)>0)
 	
 	
 	
-	$for_days=mysql_query("SELECT * FROM `users` WHERE `id` = '$applicants_id'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
-	$days = mysql_fetch_array($for_days);
+	$for_days=mysqli_query("SELECT * FROM `users` WHERE `id` = '$applicants_id'") or die ("An error occurd. We are trying our best to fix this as soon as possible. Sorry for any inconvenience");
+	$days = mysqli_fetch_array($for_days);
 	
 	$leave_credit=$days["$new_type".'_'.'leave_credit'];
 	
