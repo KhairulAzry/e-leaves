@@ -2,7 +2,7 @@
 <?php
 session_start();
 include 'base.php';
-include 'secureme.php';
+// include 'secureme.php';
 include 'functions.php';
 if($_SESSION['username'])
 {
